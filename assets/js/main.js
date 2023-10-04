@@ -2,5 +2,23 @@ var szovegek = ["lorem ipsum dolor sit amet",
     "Sanyi és Peti mindig ötös",
     "Tomi mosóport vettem tegnap",
     "Nincs kettő négy nélkül",
-    "Ki mint veti ágyát úgy alussza álmát"
+    "Ki mint veti ágyát úgy alussza álmát",
+    "Minden majom telefonál naponta",
+    "Revolver Ocelot, Revolver Ocelot"
 ]
+
+var x = Math.floor(Math.random() * szovegek.length)
+
+document.getElementById("szoveg").innerHTML = szovegek[x]
+
+var szin = () => {
+    var beirt = document.getElementById("bemenet").value
+    document.getElementById("szoveg").innerHTML=""
+    for (var i = 0; i < szovegek[x].length; i++) {
+        if (szovegek[x][i] == beirt[i]) {
+            document.getElementById("szoveg").innerHTML += "<span style='color:green'>" + szovegek[x][i] + "</span>"
+        } else {
+            document.getElementById("szoveg").innerHTML += "<span style='color:red'>" + szovegek[x][i] + "</span>"
+        }
+    }
+}
