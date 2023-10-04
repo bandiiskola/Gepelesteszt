@@ -9,16 +9,18 @@ var szovegek = ["lorem ipsum dolor sit amet",
 
 var x = Math.floor(Math.random() * szovegek.length)
 
-
+var maxcpm = 0
 document.getElementById("szoveg").innerHTML = szovegek[x]
-var ido=0
+var ido = 0
 var idozito = setInterval(() => {
     ido++
     document.getElementById("bemenet").focus()
     document.getElementById("ido").innerHTML = (ido / 10) + "mp"
+    var kozbecpm = Math.round(szovegek[x].length / (ido / 10) * 100) / 100
+    document.getElementById("myBar").style.width = (kozbecpm / 20) * 100 + "%"
     if (szovegek[x] == document.getElementById("bemenet").value) {
         clearInterval(idozito)
-        var cpm = Math.round(szovegek[x].length / (ido / 10)*100)/100
+        var cpm = Math.round(szovegek[x].length / (ido / 10) * 100) / 100
         document.getElementById("cpm").innerHTML = cpm + " karakter/mp"
         document.getElementById("kesz").style.display = "block"
     }
