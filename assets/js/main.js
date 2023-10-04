@@ -16,10 +16,11 @@ var idozito = setInterval(() => {
     document.getElementById("ido").innerHTML = (ido / 10) + "mp"
     if (szovegek[x] == document.getElementById("bemenet").value) {
         clearInterval(idozito)
-        var cpm=szovegek[x].length
+        var cpm = szovegek[x].length / (ido / 10)
+        document.getElementById("cpm").innerHTML = cpm + " karakter/mp"
         document.getElementById("kesz").style.display = "block"
     }
-},100)
+}, 100)
 
 var szin = () => {
     var beirt = document.getElementById("bemenet").value
