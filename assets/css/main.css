@@ -18,6 +18,8 @@
 
 #szoveg
 {
+    user-select: none;
+    -moz-user-select: none;
     font-size: 1.8em;
     font-weight: bold;
 }

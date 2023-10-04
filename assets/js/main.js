@@ -11,9 +11,19 @@ var x = Math.floor(Math.random() * szovegek.length)
 
 document.getElementById("szoveg").innerHTML = szovegek[x]
 
+var idozito = setInterval(() => {
+    ido++
+    document.getElementById("ido").innerHTML = (ido / 10) + "mp"
+    if (szovegek[x] == document.getElementById("bemenet").value) {
+        clearInterval(idozito)
+        var cpm=szovegek[x].length
+        document.getElementById("kesz").style.display = "block"
+    }
+},100)
+
 var szin = () => {
     var beirt = document.getElementById("bemenet").value
-    document.getElementById("szoveg").innerHTML=""
+    document.getElementById("szoveg").innerHTML = ""
     for (var i = 0; i < szovegek[x].length; i++) {
         if (szovegek[x][i] == beirt[i]) {
             document.getElementById("szoveg").innerHTML += "<span style='color:green'>" + szovegek[x][i] + "</span>"
